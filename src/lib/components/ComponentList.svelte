@@ -1,7 +1,5 @@
 <script>
 	import { componentStore as options } from '$lib/stores/componentStores.js';
-	
-
 	export let components;
 </script>
 

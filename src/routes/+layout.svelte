@@ -10,7 +10,7 @@
 <header class="container">
 	<nav>
 		<ul>
-			<li><strong>{data.user ? data.user.username : 'Not Logged In'}</strong></li>
+			<li><strong>{data.user ? data.user.username : 'AAE Dashboard'}</strong></li>
 		</ul>
 		{#if data.user}
 			<ul>

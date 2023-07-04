@@ -1,55 +1,30 @@
 <script>
-	import Icon from '@iconify/svelte';
-	import Table from '$lib/builderComponents/Table.svelte';
-	import Greeting from '$lib/builderComponents/Greeting.svelte';
-	import FormModal from '../../../lib/components/FormModal.svelte';
-
-	const componentOptions = {
-		table: {
-			component: Table,
-			props: {
-				databaseURL: 'url',
-				collection: 'text'
-			}
-		},
-		greeting: {
-			component: Greeting,
-			props: {
-				title: 'text',
-				description: 'text'
-			}
-		}
-	};
+	import AddNewComponentModal from '$lib/components/AddNewComponentModal.svelte';
+	import ComponentList from '$lib/components/ComponentList.svelte';
+	import AddComponentButton from '$lib/components/AddComponentButton.svelte';
+	import { componentStore as options } from '$lib/stores/componentStores.js';
 
 	export let data;
-	let isOpen = false;
+
+	$: components = data.components ?? [];
+	let addIsOpen = false;
 </script>
 
 <h4>{data.name}</h4>
-
 <hr />
 
-{#each data.components as component}
-	<br />
-		<svelte:component this={componentOptions[component.type].component} {...component.props} />
-	<br />
-{/each}
+<ComponentList {components} />
 
-<article class="placeholder">
-	<button
-		class="rounded placeholder"
-		on:click={() => {
-			isOpen = true;
-		}}
-	>
-		<Icon icon="mdi:plus" />
-	</button>
-</article>
-
-<FormModal
-	on:close={() => {
-		isOpen = false;
+<AddComponentButton
+	on:addopen={() => {
+		addIsOpen = true;
 	}}
-	{isOpen}
-	formFields={componentOptions}
+/>
+
+<AddNewComponentModal
+	on:close={() => {
+		addIsOpen = false;
+	}}
+	isOpen={addIsOpen}
+	formFields={$options}
 />

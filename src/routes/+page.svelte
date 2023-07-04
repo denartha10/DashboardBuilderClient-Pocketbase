@@ -1,2 +1,10 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<hgroup>
+	<h2>Welcome To The Page Builder</h2>
+	<p>This is a proof of concept for how to create a minimal page builder</p>
+</hgroup>
+
+<br />
+
+<article>
+	<a href="/projects">View Projects</a>
+</article>

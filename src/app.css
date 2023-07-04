@@ -1,0 +1,72 @@
+/* Violet color for light color scheme (Default) */
+/* Can be forced with data-theme="light" */
+[data-theme='light'],
+:root:not([data-theme='dark']) {
+	--pico-text-selection-color: rgba(167, 128, 212, 0.25);
+	--pico-primary: #8352c5;
+	--pico-primary-background: #7540bf;
+	--pico-primary-underline: rgba(131, 82, 197, 0.5);
+	--pico-primary-hover: #6935b3;
+	--pico-primary-hover-background: #6935b3;
+	--pico-primary-focus: rgba(167, 128, 212, 0.25);
+	--pico-primary-inverse: #fff;
+}
+
+/* Violet color for dark color scheme (Auto) */
+/* Automatically enabled if user has Dark mode enabled */
+@media only screen and (prefers-color-scheme: dark) {
+	:root:not([data-theme]) {
+		--pico-text-selection-color: rgba(178, 144, 217, 0.1875);
+		--pico-primary: #b290d9;
+		--pico-primary-background: #7540bf;
+		--pico-primary-underline: rgba(178, 144, 217, 0.5);
+		--pico-primary-hover: #c9afe4;
+		--pico-primary-hover-background: #8352c5;
+		--pico-primary-focus: rgba(178, 144, 217, 0.25);
+		--pico-primary-inverse: #fff;
+	}
+}
+
+/* Violet color for dark color scheme (Forced) */
+/* Enabled if forced with data-theme="dark" */
+[data-theme='dark'] {
+	--pico-text-selection-color: rgba(178, 144, 217, 0.1875);
+	--pico-primary: #b290d9;
+	--pico-primary-background: #7540bf;
+	--pico-primary-underline: rgba(178, 144, 217, 0.5);
+	--pico-primary-hover: #c9afe4;
+	--pico-primary-hover-background: #8352c5;
+	--pico-primary-focus: rgba(178, 144, 217, 0.25);
+	--pico-primary-inverse: #fff;
+}
+
+.placeholder {
+	background: transparent;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: dotted 1px var(--pico-primary);
+}
+
+button.placeholder:hover {
+	border-color: var(--pico-primary-inverse);
+}
+
+.rounded {
+	aspect-ratio: 1/1;
+	border-radius: 50%;
+}
+
+.capitalise {
+	text-transform: capitalize;
+}
+
+.grid {
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width: 768px) {
+	.grid {
+		grid-template-columns: repeat(1, minmax(0, 1fr));
+	}
+}
